@@ -1,26 +1,30 @@
 package com.gumtree.addressBook;
 
+import java.time.LocalDate;
 import java.time.chrono.IsoChronology;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
-
-import junit.framework.Assert;
-
+import static org.junit.Assert.assertEquals;
 public class PersonTest {
 
 	@Test
 	public void getNameTest(){
 		List<Person> person = testData();
 		String name = "ppp qqq";
-		Assert.assertEquals(person.get(1).getName(),name);
+		assertEquals(person.get(1).getName(),name);
 	}
-	
+	@Test
+	public void getDobTest(){
+		List<Person> person = testData();
+		LocalDate date = LocalDate.of(1991, 11, 20);
+		assertEquals(person.get(2).getDob(), date);
+	}
 	@Test
 	public void getAgeTest(){
 		List<Person> person = testData();
-		Assert.assertEquals(person.get(2).getAge(),26);
+		assertEquals(person.get(2).getAge(),26);
 	}
 	
 	public  List<Person> testData(){
